@@ -17,11 +17,16 @@ arch-chroot /mnt
 echo aaalinux-pc > /etc/hostname
 ln -sf /usr/share/zoneinfo/America/Santiago /etc/localtime
 
-echo "modificar idioma sistema con nano"
+echo "modificar idioma sistema"
 #nano /etc/locale.gen
 
-sed -i "es_ES.UTF-8 UTF-8" /etc/locale.gen
-sed -i "es_ES ISO-8859-1" /etc/locale.gen
+
+LOCALES=("es_ES.UTF-8 UTF-8")
+sed -i "s/#$LOCALES/$LOCALES/" /etc/locale.gen
+
+
+#sed -i "es_ES.UTF-8 UTF-8" /etc/locale.gen
+#sed -i "es_ES ISO-8859-1" /etc/locale.gen
 
 
 
@@ -62,9 +67,24 @@ reboot
 #pacman -S xf86-video-intel intel-ucode
 #pacman -S xorg-server xorg-xinit mesa mesa-demos
 #pacman -S lxde
-
+#pacman -S opera leafpad epdfview firefox firefox-i18n-es-cl file-roller
 #pacman -S lxdm
 #systemctl enable lxdm.service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
